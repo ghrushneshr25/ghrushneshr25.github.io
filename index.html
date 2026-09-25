@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Ghrushnesh Rathod — Senior Software Engineer</title>
+    <meta
+      name="description"
+      content="Senior Software Engineer building backend systems, distributed infrastructure, and multi-tenant platforms in Go and Java. 4+ years across identity, data pipelines, and cloud."
+    />
+    <meta name="author" content="Ghrushnesh Rathod" />
+    <link rel="canonical" href="https://ghrushneshr25.github.io/ghrushneshrathod/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Ghrushnesh Rathod — Senior Software Engineer" />
+    <meta
+      property="og:description"
+      content="Backend systems. Distributed infrastructure. Multi-tenant platforms. Control plane for Ghrushnesh Rathod."
+    />
+    <meta property="og:url" content="https://ghrushneshr25.github.io/ghrushneshrathod/" />
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/55099077?v=4" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ghrushnesh Rathod — Senior Software Engineer" />
+    <meta
+      name="twitter:description"
+      content="Backend systems. Distributed infrastructure. Multi-tenant platforms."
+    />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      ;(function () {
+        try {
+          var stored = localStorage.getItem('portfolio-theme')
+          var theme =
+            stored === 'light' || stored === 'dark'
+              ? stored
+              : window.matchMedia('(prefers-color-scheme: light)').matches
+                ? 'light'
+                : 'dark'
+          document.documentElement.setAttribute('data-theme', theme)
+          var meta = document.querySelector('meta[name="theme-color"]')
+          if (meta) meta.setAttribute('content', theme === 'light' ? '#ffffff' : '#000000')
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark')
+        }
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
