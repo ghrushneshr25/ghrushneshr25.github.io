@@ -57,4 +57,23 @@ export const projects: Project[] = [
       { id: 'clickhouse', label: 'ClickHouse', detail: 'OLAP plane' },
     ],
   },
+  {
+    id: 'secretmesh',
+    number: '03',
+    name: 'SecretMesh',
+    tagline: 'Agent local secret discovery; mesh backed delivery.',
+    what: 'Four plane secrets platform: apps talk only to a local agent over UDS; the agent fetches versioned secrets from a control plane over QUIC + TLS 1.3 mTLS. No long lived credentials in env, images, or manifests.',
+    why: 'Env/K8s secrets are static: rotation restarts pods, partitions leave stale values, and apps often hold cluster credentials. SecretMesh keeps apps off the network; the mesh handles authz, rotation, revocation, and resync behind the agent.',
+    how: 'Custom 24 byte framed CBOR on UDS and QUIC. Deny by default policy on identity, path, and action. AES 256 GCM envelopes in Postgres (never plaintext). Raft replicates path, version, and revoked metadata only; NATS fans out rotated and revoked events without values. Agent cache is version monotonic with TTL, RESYNC after disconnect, and subscribe/ACK for live updates. Wired with Nexus.',
+    stack: ['Go', 'QUIC', 'mTLS', 'Raft', 'NATS', 'PostgreSQL', 'CBOR', 'Nexus'],
+    href: 'https://github.com/ghrushneshr25/secretmesh',
+    architecture: [
+      { id: 'local', label: 'Local', detail: 'App → UDS → Agent' },
+      { id: 'wire', label: 'Wire', detail: 'QUIC + mTLS' },
+      { id: 'control', label: 'Control', detail: 'policy + discovery' },
+      { id: 'meta', label: 'Raft', detail: 'path → version' },
+      { id: 'events', label: 'NATS', detail: 'events, no values' },
+      { id: 'store', label: 'Postgres', detail: 'AES-GCM only' },
+    ],
+  },
 ]

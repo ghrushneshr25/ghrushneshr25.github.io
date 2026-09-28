@@ -1268,11 +1268,7 @@ p {
   }
 
   .projects {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .projects .project:first-child {
-    grid-column: 1 / -1;
+    grid-template-columns: 1fr;
   }
 }
 
