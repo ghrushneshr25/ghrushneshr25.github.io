@@ -1,5 +1,5 @@
 import { projects } from '../data/projects'
-import { ArrowUpRight } from './Icons'
+import { Github } from './Icons'
 import { useReveal } from '../hooks/useReveal'
 import { SectionHeader } from './SectionHeader'
 
@@ -20,7 +20,20 @@ export function Projects() {
             <article className="project" key={project.id}>
               <span className="project__num">{project.number}</span>
               <div>
-                <h3>{project.name}</h3>
+                <div className="project__head">
+                  <h3>{project.name}</h3>
+                  {project.href ? (
+                    <a
+                      className="project__gh"
+                      href={project.href}
+                      rel="noreferrer"
+                      target="_blank"
+                      aria-label={`${project.name} repository`}
+                    >
+                      <Github size={32} />
+                    </a>
+                  ) : null}
+                </div>
                 <p className="project__tagline">{project.tagline}</p>
                 <dl className="project__story">
                   <div>
@@ -43,28 +56,6 @@ export function Projects() {
                     </span>
                   ))}
                 </div>
-                {project.href ? (
-                  <a className="btn" href={project.href} rel="noreferrer" target="_blank" style={{ marginTop: 18 }}>
-                    Repository <ArrowUpRight size={14} />
-                  </a>
-                ) : null}
-                {project.architecture ? (
-                  <div className="flow" aria-label={`${project.name} architecture`}>
-                    {project.architecture.map((node, index) => (
-                      <span key={node.id} style={{ display: 'contents' }}>
-                        {index > 0 ? (
-                          <span className="flow__arrow" aria-hidden="true">
-                            →
-                          </span>
-                        ) : null}
-                        <span className="flow__node">
-                          {node.label}
-                          {node.detail ? <small>{node.detail}</small> : null}
-                        </span>
-                      </span>
-                    ))}
-                  </div>
-                ) : null}
               </div>
             </article>
           ))}

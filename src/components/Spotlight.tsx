@@ -22,23 +22,6 @@ export function Spotlight() {
             {project.what} {project.why}
           </p>
           <p style={{ color: 'var(--text-dim)', maxWidth: '62ch' }}>{project.how}</p>
-          {project.architecture ? (
-            <div className="flow" aria-label={`${project.name} architecture`}>
-              {project.architecture.map((node, index) => (
-                <span key={node.id} style={{ display: 'contents' }}>
-                  {index > 0 ? (
-                    <span className="flow__arrow" aria-hidden="true">
-                      →
-                    </span>
-                  ) : null}
-                  <span className="flow__node">
-                    {node.label}
-                    {node.detail ? <small>{node.detail}</small> : null}
-                  </span>
-                </span>
-              ))}
-            </div>
-          ) : null}
           <div className="tags">
             {project.stack.map((item) => (
               <span className="tag" key={item}>

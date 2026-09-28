@@ -3,7 +3,6 @@ import { Contact } from './components/Contact'
 import { Currently } from './components/Currently'
 import { Experience } from './components/Experience'
 import { Footer } from './components/Footer'
-import { Github } from './components/Github'
 import { Hero } from './components/Hero'
 import { Navbar } from './components/Navbar'
 import { Projects } from './components/Projects'
@@ -30,7 +29,6 @@ export default function App() {
         <Spotlight />
         <Projects />
         <TechStack />
-        <Github />
         <Currently />
         <Terminal />
         <Contact />
