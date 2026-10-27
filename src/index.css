@@ -1,26 +1,143 @@
+/* Interpolatable theme tokens — enables smooth dark↔light morphs */
+@property --bg {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #000000;
+}
+@property --bg-2 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #0a0a0a;
+}
+@property --panel {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #111111;
+}
+@property --panel-2 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #1a1a1a;
+}
+@property --line {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #ffffff1f;
+}
+@property --line-strong {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #ffffff3d;
+}
+@property --text {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #ffffff;
+}
+@property --text-dim {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #a3a3a3;
+}
+@property --text-mute {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #737373;
+}
+@property --accent {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #ffffff;
+}
+@property --accent-dim {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #ffffff14;
+}
+@property --accent-glow {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #ffffff33;
+}
+@property --signal {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #e5e5e5;
+}
+@property --warn {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #a3a3a3;
+}
+@property --danger {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #737373;
+}
+@property --ink {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #000000;
+}
+@property --nav-bg {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #000000db;
+}
+@property --drawer-bg {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #000000f7;
+}
+@property --terminal-bg {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #050505;
+}
+@property --tip-bg {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #141414;
+}
+@property --grid-line {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #ffffff0a;
+}
+@property --solid-fg {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #000000;
+}
+@property --solid-hover {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #e5e5e5;
+}
+
 :root,
 [data-theme='dark'] {
   --bg: #000000;
   --bg-2: #0a0a0a;
   --panel: #111111;
   --panel-2: #1a1a1a;
-  --line: rgba(255, 255, 255, 0.12);
-  --line-strong: rgba(255, 255, 255, 0.24);
+  --line: #ffffff1f;
+  --line-strong: #ffffff3d;
   --text: #ffffff;
   --text-dim: #a3a3a3;
   --text-mute: #737373;
   --accent: #ffffff;
-  --accent-dim: rgba(255, 255, 255, 0.08);
-  --accent-glow: rgba(255, 255, 255, 0.2);
+  --accent-dim: #ffffff14;
+  --accent-glow: #ffffff33;
   --signal: #e5e5e5;
   --warn: #a3a3a3;
   --danger: #737373;
   --ink: #000000;
-  --nav-bg: rgba(0, 0, 0, 0.86);
-  --drawer-bg: rgba(0, 0, 0, 0.97);
+  --nav-bg: #000000db;
+  --drawer-bg: #000000f7;
   --terminal-bg: #050505;
   --tip-bg: #141414;
-  --grid-line: rgba(255, 255, 255, 0.04);
+  --grid-line: #ffffff0a;
   --solid-fg: #000000;
   --solid-hover: #e5e5e5;
   --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
@@ -28,6 +145,7 @@
   --nav-h: 64px;
   --max: 1120px;
   --radius: 2px;
+  --theme-ease: 0ms;
   color-scheme: dark;
 }
 
@@ -36,23 +154,23 @@
   --bg-2: #f5f5f5;
   --panel: #fafafa;
   --panel-2: #f0f0f0;
-  --line: rgba(0, 0, 0, 0.12);
-  --line-strong: rgba(0, 0, 0, 0.24);
+  --line: #0000001f;
+  --line-strong: #0000003d;
   --text: #000000;
   --text-dim: #404040;
   --text-mute: #737373;
   --accent: #000000;
-  --accent-dim: rgba(0, 0, 0, 0.06);
-  --accent-glow: rgba(0, 0, 0, 0.14);
+  --accent-dim: #0000000f;
+  --accent-glow: #00000024;
   --signal: #171717;
   --warn: #525252;
   --danger: #404040;
   --ink: #ffffff;
-  --nav-bg: rgba(255, 255, 255, 0.88);
-  --drawer-bg: rgba(255, 255, 255, 0.98);
+  --nav-bg: #ffffffe0;
+  --drawer-bg: #fffffffA;
   --terminal-bg: #f7f7f7;
   --tip-bg: #ffffff;
-  --grid-line: rgba(0, 0, 0, 0.05);
+  --grid-line: #0000000d;
   --solid-fg: #ffffff;
   --solid-hover: #1a1a1a;
   color-scheme: light;
@@ -68,6 +186,36 @@ html {
   scroll-behavior: smooth;
   background: var(--bg);
   overflow-x: clip;
+  transition:
+    --bg var(--theme-ease) cubic-bezier(0.4, 0, 0.2, 1),
+    --bg-2 var(--theme-ease) cubic-bezier(0.4, 0, 0.2, 1),
+    --panel var(--theme-ease) cubic-bezier(0.4, 0, 0.2, 1),
+    --panel-2 var(--theme-ease) cubic-bezier(0.4, 0, 0.2, 1),
+    --line var(--theme-ease) cubic-bezier(0.4, 0, 0.2, 1),
+    --line-strong var(--theme-ease) cubic-bezier(0.4, 0, 0.2, 1),
+    --text var(--theme-ease) cubic-bezier(0.4, 0, 0.2, 1),
+    --text-dim var(--theme-ease) cubic-bezier(0.4, 0, 0.2, 1),
+    --text-mute var(--theme-ease) cubic-bezier(0.4, 0, 0.2, 1),
+    --accent var(--theme-ease) cubic-bezier(0.4, 0, 0.2, 1),
+    --accent-dim var(--theme-ease) cubic-bezier(0.4, 0, 0.2, 1),
+    --accent-glow var(--theme-ease) cubic-bezier(0.4, 0, 0.2, 1),
+    --signal var(--theme-ease) cubic-bezier(0.4, 0, 0.2, 1),
+    --warn var(--theme-ease) cubic-bezier(0.4, 0, 0.2, 1),
+    --danger var(--theme-ease) cubic-bezier(0.4, 0, 0.2, 1),
+    --ink var(--theme-ease) cubic-bezier(0.4, 0, 0.2, 1),
+    --nav-bg var(--theme-ease) cubic-bezier(0.4, 0, 0.2, 1),
+    --drawer-bg var(--theme-ease) cubic-bezier(0.4, 0, 0.2, 1),
+    --terminal-bg var(--theme-ease) cubic-bezier(0.4, 0, 0.2, 1),
+    --tip-bg var(--theme-ease) cubic-bezier(0.4, 0, 0.2, 1),
+    --grid-line var(--theme-ease) cubic-bezier(0.4, 0, 0.2, 1),
+    --solid-fg var(--theme-ease) cubic-bezier(0.4, 0, 0.2, 1),
+    --solid-hover var(--theme-ease) cubic-bezier(0.4, 0, 0.2, 1),
+    background-color var(--theme-ease) cubic-bezier(0.4, 0, 0.2, 1),
+    color var(--theme-ease) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html.is-theme-waving {
+  --theme-ease: 1200ms;
 }
 
 ::selection {
@@ -737,9 +885,45 @@ p {
   font-size: 17px;
 }
 
+.project__signal {
+  margin-top: 14px;
+  padding: 14px 14px 16px;
+  border-left: 2px solid var(--accent);
+  background: var(--accent-dim);
+  max-width: 62ch;
+}
+
+.project__signal--spotlight {
+  margin-top: 0;
+}
+
+.project__signal-kicker {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+}
+
+.project__signal-title {
+  margin: 8px 0 0;
+  font-size: clamp(18px, 2.4vw, 22px);
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+
+.project__signal-body {
+  margin: 8px 0 0;
+  color: var(--text-dim);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
 .project__story {
   display: grid;
   gap: 14px;
+  margin-top: 16px;
 }
 
 .project__story dt {
@@ -1321,9 +1505,122 @@ p {
   }
 }
 
+/* ── diagonal theme wave + smooth palette morph ─────────────── */
+
+.theme-wave {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 420ms ease;
+}
+
+.theme-wave.is-active {
+  opacity: 1;
+  transition: opacity 180ms ease;
+}
+
+.theme-wave.is-done {
+  opacity: 0;
+  transition: opacity 480ms ease;
+}
+
+.theme-wave__veil {
+  position: absolute;
+  /* oversized so the soft band can travel fully corner → corner */
+  inset: -40%;
+  width: 180%;
+  height: 180%;
+  will-change: transform, opacity;
+  transform: translate3d(-42%, -42%, 0);
+  opacity: 0.92;
+}
+
+/* dark → light: soft white band sweeps TL → BR */
+.theme-wave--to-light .theme-wave__veil {
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #ffffff 38%,
+    rgba(255, 255, 255, 0.92) 46%,
+    rgba(255, 255, 255, 0.45) 52%,
+    rgba(0, 0, 0, 0.2) 58%,
+    rgba(0, 0, 0, 0) 68%
+  );
+}
+
+.theme-wave--to-light.is-active .theme-wave__veil {
+  animation: wave-sweep-tl-br 1400ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* light → dark: soft black band sweeps BR → TL */
+.theme-wave--to-dark .theme-wave__veil {
+  background: linear-gradient(
+    315deg,
+    #000000 0%,
+    #000000 38%,
+    rgba(0, 0, 0, 0.92) 46%,
+    rgba(0, 0, 0, 0.45) 52%,
+    rgba(255, 255, 255, 0.18) 58%,
+    rgba(255, 255, 255, 0) 68%
+  );
+  transform: translate3d(42%, 42%, 0);
+}
+
+.theme-wave--to-dark.is-active .theme-wave__veil {
+  animation: wave-sweep-br-tl 1400ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes wave-sweep-tl-br {
+  0% {
+    transform: translate3d(-48%, -48%, 0);
+    opacity: 0.55;
+  }
+  18% {
+    opacity: 0.95;
+  }
+  70% {
+    opacity: 0.78;
+  }
+  100% {
+    transform: translate3d(28%, 28%, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes wave-sweep-br-tl {
+  0% {
+    transform: translate3d(48%, 48%, 0);
+    opacity: 0.55;
+  }
+  18% {
+    opacity: 0.95;
+  }
+  70% {
+    opacity: 0.78;
+  }
+  100% {
+    transform: translate3d(-28%, -28%, 0);
+    opacity: 0;
+  }
+}
+
+html.is-theme-waving,
+html.is-theme-waving body {
+  overflow: hidden;
+}
+
+.nav__theme:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+    --theme-ease: 0ms !important;
   }
 
   *,
@@ -1336,5 +1633,9 @@ p {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+
+  .theme-wave {
+    display: none !important;
   }
 }

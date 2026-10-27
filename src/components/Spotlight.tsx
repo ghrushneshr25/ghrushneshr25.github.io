@@ -21,6 +21,13 @@ export function Spotlight() {
           <p className="project__tagline" style={{ fontSize: 20, maxWidth: '52ch' }}>
             {project.what} {project.why}
           </p>
+          <aside className="project__signal project__signal--spotlight">
+            <p className="project__signal-kicker">
+              Specialty · {project.specialty.audience}
+            </p>
+            <p className="project__signal-title">{project.specialty.title}</p>
+            <p className="project__signal-body">{project.specialty.body}</p>
+          </aside>
           <p style={{ color: 'var(--text-dim)', maxWidth: '62ch' }}>{project.how}</p>
           <div className="tags">
             {project.stack.map((item) => (

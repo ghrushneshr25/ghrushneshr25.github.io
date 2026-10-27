@@ -8,7 +8,7 @@ const navIds = navItems.map((item) => item.id)
 
 export function Navbar() {
   const active = useActiveSection(navIds)
-  const { theme, toggle } = useTheme()
+  const { theme, toggle, busy } = useTheme()
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
@@ -51,6 +51,8 @@ export function Navbar() {
           className="nav__theme"
           type="button"
           aria-label={theme === 'dark' ? 'Switch to day mode' : 'Switch to dark mode'}
+          aria-busy={busy}
+          disabled={busy}
           onClick={toggle}
         >
           {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}

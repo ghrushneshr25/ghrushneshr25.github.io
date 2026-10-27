@@ -35,6 +35,13 @@ export function Projects() {
                   ) : null}
                 </div>
                 <p className="project__tagline">{project.tagline}</p>
+                <aside className="project__signal">
+                  <p className="project__signal-kicker">
+                    Specialty · {project.specialty.audience}
+                  </p>
+                  <p className="project__signal-title">{project.specialty.title}</p>
+                  <p className="project__signal-body">{project.specialty.body}</p>
+                </aside>
                 <dl className="project__story">
                   <div>
                     <dt>What</dt>
