@@ -29,13 +29,19 @@ export const navItems = [
   { id: 'contact', label: 'Contact' },
 ] as const
 
-export const systemStatus = [
+export type SystemState = 'ONLINE' | 'EXPLORING'
+
+export const systemStatus: ReadonlyArray<{
+  key: string
+  label: string
+  state: SystemState
+}> = [
   { key: 'backend', label: 'backend', state: 'ONLINE' },
   { key: 'distributed', label: 'distributed', state: 'ONLINE' },
   { key: 'cloud', label: 'cloud', state: 'ONLINE' },
   { key: 'iam', label: 'iam', state: 'ONLINE' },
   { key: 'ai', label: 'ai / llm', state: 'ONLINE' },
-] as const
+]
 
 export const currently = {
   building: [
