@@ -16,9 +16,10 @@ export function About() {
               touch it, and what happens when a worker dies mid-flight.
             </p>
             <p>
-              At Velotio I own ingestion and delivery platforms — connectors, replay, PII masking,
-              tenant RBAC. Before that, at Forcepoint, I built identity: SSO, SCIM, MFA, and a
-              policy service that had to be both correct and fast.
+              At Velotio I build security data platforms from the ground up — federated search,
+              stream transformation, rules, enrichment, redaction, and LLM tooling for SIEM
+              mapping. Before that, at Forcepoint, I built identity: SSO, SCIM, MFA, and a policy
+              service that had to be both correct and fast.
             </p>
             <p>
               The interesting work is rarely the happy path. It is backpressure, backup topics,

@@ -17,12 +17,12 @@ export const experience: ExperienceItem[] = [
     location: 'Pune, India',
     current: true,
     highlights: [
-      'Built a pipeline simulation playground that cut customer onboarding from a day to ~30 minutes.',
-      'Designed a data replay framework with backup topics, retry orchestration, and asynchronous recovery.',
-      'Shipped 40+ ingestion connectors and 10+ dispensers across REST, gRPC, GraphQL, Kafka, and Azure Event Hub.',
-      'Owned dispenser services used by 40+ customers; a generic HTTP framework dropped new integrations from days to hours.',
-      'Built a Sensitive Data Service to mask credentials and PII before multi-tenant ingestion.',
-      'Designed tenant-level RBAC, Keycloak SSO audit workflows, and Kubernetes readiness checks that wait on real dependencies.',
+      'Built federated search across Athena, Synapse, ClickHouse, and customer SIEM lakes—with async execution and a ClickHouse result cache.',
+      'Built a pure-Go transformation service that normalizes security telemetry into OCSF / ECS / UDM (~5 ms → 0.5 ms/event), replacing Vector/VRL.',
+      'Built a Kafka rules engine for volume control, detections, and insights—hot-reloadable Grule rules with Redis gating.',
+      'Built enrichment and sensitive-data services that look up Redis context and mask/redact secrets in-flight on Kafka streams.',
+      'Built LLM backends for deep-research agents, text-to-SQL, and SIEM schema mapping over customer data.',
+      'Cut pipeline onboarding from a day to ~30 minutes; owned dispensers used by 40+ customers.',
     ],
   },
   {

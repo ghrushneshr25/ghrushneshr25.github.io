@@ -33,7 +33,7 @@ function run(input: string): string | '__CLEAR__' | '__GITHUB__' {
     case 'ls':
       return 'home  work  projects  stack  about  contact'
     case 'stack':
-      return 'Go  Java  TypeScript  SQL  Kafka  PostgreSQL  Kubernetes  AWS'
+      return 'Go  Java  Python  TypeScript  Kafka  PostgreSQL  Kubernetes  AWS'
     case 'contact':
       return `${profile.email}\n${profile.github}\n${profile.linkedin}`
     case 'github':

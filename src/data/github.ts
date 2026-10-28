@@ -53,4 +53,4 @@ export const selectedRepos: GithubRepo[] = [
   },
 ]
 
-export const recentLanguages = ['Go', 'PostgreSQL', 'Kafka', 'TypeScript'] as const
+export const recentLanguages = ['Go', 'Java', 'Python', 'PostgreSQL', 'Kafka', 'TypeScript'] as const

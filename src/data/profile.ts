@@ -5,7 +5,7 @@ export const profile = {
   handle: 'ghrushneshr25',
   role: 'Senior Software Engineer',
   years: '4+',
-  location: 'Pune / Mumbai, India',
+  location: 'Mumbai, India',
   headline: 'I build backend systems that stay quiet when traffic isn’t.',
   thesis:
     'Distributed infrastructure, multi-tenant platforms, and the failure paths nobody wants to debug at 2am.',
@@ -34,21 +34,21 @@ export const systemStatus = [
   { key: 'distributed', label: 'distributed', state: 'ONLINE' },
   { key: 'cloud', label: 'cloud', state: 'ONLINE' },
   { key: 'iam', label: 'iam', state: 'ONLINE' },
-  { key: 'ai', label: 'ai / llm', state: 'EXPLORING' },
+  { key: 'ai', label: 'ai / llm', state: 'ONLINE' },
 ] as const
 
 export const currently = {
   building: [
-    'Distributed systems',
-    'Data pipeline platforms',
-    'Cloud infrastructure',
-    'AI / LLM tooling',
+    'Federated search platforms',
+    'Security data pipelines',
+    'Cloud-native backends',
+    'LLM / agent tooling',
   ],
-  learning: ['Machine learning', 'Deep learning', 'AI systems'],
+  learning: ['Agent systems', 'Multi-engine query paths', 'Vector search'],
   exploring: [
+    'MCP servers',
+    'Text-to-SQL safety',
     'Developer tooling',
     'Agentic coding',
-    'LLM infrastructure',
-    'MCP servers',
   ],
 } as const

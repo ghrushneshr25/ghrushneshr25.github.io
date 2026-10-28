@@ -21,8 +21,8 @@ export function Contact() {
         </p>
         <h2>Have an interesting system to build?</h2>
         <p>
-          I like multi-tenant backends, ingestion platforms, and identity problems with sharp
-          edges. If that sounds like your stack, write.
+          I like multi-tenant backends, data platforms, and identity problems with sharp edges. If
+          that sounds like your stack, write.
         </p>
         <div className="contact__links">
           <a className="btn btn--solid" href={`mailto:${profile.email}`}>
