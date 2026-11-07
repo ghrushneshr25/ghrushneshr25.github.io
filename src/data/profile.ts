@@ -12,6 +12,7 @@ export const profile = {
   email: 'ghrushneshr25@gmail.com',
   github: 'https://github.com/ghrushneshr25',
   linkedin: 'https://www.linkedin.com/in/ghrushnesh-rathod',
+  pavilion: 'https://ghrushneshr25.github.io/dsa-pavilion/',
   education: {
     school: 'University of Mumbai',
     degree: 'B.E. Computer Engineering',
@@ -26,6 +27,12 @@ export const navItems = [
   { id: 'work', label: 'Work' },
   { id: 'projects', label: 'Projects' },
   { id: 'stack', label: 'Stack' },
+  {
+    id: 'dsa',
+    label: 'DSA',
+    href: 'https://ghrushneshr25.github.io/dsa-pavilion/',
+    title: 'Follow my data structures journey',
+  },
   { id: 'contact', label: 'Contact' },
 ] as const
 

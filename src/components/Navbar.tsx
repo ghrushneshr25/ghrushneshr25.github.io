@@ -2,12 +2,41 @@ import { useEffect, useState } from 'react'
 import { navItems, profile } from '../data/profile'
 import { useActiveSection } from '../hooks/useActiveSection'
 import { useTheme } from '../hooks/useTheme'
-import { Menu, Moon, Sun, X } from './Icons'
+import { ArrowUpRight, Menu, Moon, Sun, X } from './Icons'
 
-const navIds = navItems.map((item) => item.id)
+const sectionIds = navItems.filter((item) => !('href' in item)).map((item) => item.id)
+
+function NavAnchor({
+  item,
+  active,
+  onClick,
+}: {
+  item: (typeof navItems)[number]
+  active: string
+  onClick?: () => void
+}) {
+  const external = 'href' in item && Boolean(item.href)
+  const href = external ? item.href : `#${item.id}`
+  const title = 'title' in item ? item.title : undefined
+
+  return (
+    <a
+      className={!external && active === item.id ? 'nav__link is-active' : 'nav__link'}
+      href={href}
+      title={title}
+      aria-label={title ?? item.label}
+      aria-current={!external && active === item.id ? 'location' : undefined}
+      {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}
+      onClick={onClick}
+    >
+      {item.label}
+      {external ? <ArrowUpRight size={11} /> : null}
+    </a>
+  )
+}
 
 export function Navbar() {
-  const active = useActiveSection(navIds)
+  const active = useActiveSection(sectionIds)
   const { theme, toggle, busy } = useTheme()
   const [open, setOpen] = useState(false)
 
@@ -37,14 +66,7 @@ export function Navbar() {
       <div className="nav__actions">
         <nav className="nav__links" aria-label="Primary">
           {navItems.map((item) => (
-            <a
-              key={item.id}
-              className={active === item.id ? 'nav__link is-active' : 'nav__link'}
-              href={`#${item.id}`}
-              aria-current={active === item.id ? 'location' : undefined}
-            >
-              {item.label}
-            </a>
+            <NavAnchor key={item.id} item={item} active={active} />
           ))}
         </nav>
         <button
@@ -71,14 +93,7 @@ export function Navbar() {
       {open ? (
         <nav id="mobile-nav" className="nav__drawer" aria-label="Mobile">
           {navItems.map((item) => (
-            <a
-              key={item.id}
-              className={active === item.id ? 'is-active' : undefined}
-              href={`#${item.id}`}
-              onClick={() => setOpen(false)}
-            >
-              {item.label}
-            </a>
+            <NavAnchor key={item.id} item={item} active={active} onClick={() => setOpen(false)} />
           ))}
         </nav>
       ) : null}

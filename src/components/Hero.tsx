@@ -29,6 +29,9 @@ export function Hero() {
             <a className="btn" href={`mailto:${profile.email}`}>
               Email <ArrowUpRight size={14} />
             </a>
+            <a className="btn" href={profile.pavilion} rel="noreferrer" target="_blank">
+              Follow my DSA journey <ArrowUpRight size={14} />
+            </a>
           </div>
         </div>
         <aside className="status" aria-label="System status">
