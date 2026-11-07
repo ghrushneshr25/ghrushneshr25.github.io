@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react'
 import { navItems, profile } from '../data/profile'
 import { useActiveSection } from '../hooks/useActiveSection'
 import { useTheme } from '../hooks/useTheme'
-import { ArrowUpRight, Menu, Moon, Sun, X } from './Icons'
+import { Menu, Moon, Sun, X } from './Icons'
 
-const sectionIds = navItems.filter((item) => !('href' in item)).map((item) => item.id)
+const sectionIds = navItems.map((item) => item.id)
 
 function NavAnchor({
   item,
@@ -15,22 +15,14 @@ function NavAnchor({
   active: string
   onClick?: () => void
 }) {
-  const external = 'href' in item && Boolean(item.href)
-  const href = external ? item.href : `#${item.id}`
-  const title = 'title' in item ? item.title : undefined
-
   return (
     <a
-      className={!external && active === item.id ? 'nav__link is-active' : 'nav__link'}
-      href={href}
-      title={title}
-      aria-label={title ?? item.label}
-      aria-current={!external && active === item.id ? 'location' : undefined}
-      {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}
+      className={active === item.id ? 'nav__link is-active' : 'nav__link'}
+      href={`#${item.id}`}
+      aria-current={active === item.id ? 'location' : undefined}
       onClick={onClick}
     >
       {item.label}
-      {external ? <ArrowUpRight size={11} /> : null}
     </a>
   )
 }
