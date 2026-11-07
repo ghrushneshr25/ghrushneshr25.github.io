@@ -27,12 +27,7 @@ export const navItems = [
   { id: 'work', label: 'Work' },
   { id: 'projects', label: 'Projects' },
   { id: 'stack', label: 'Stack' },
-  {
-    id: 'dsa',
-    label: 'DSA',
-    href: 'https://ghrushneshr25.github.io/dsa-pavilion/',
-    title: 'Follow my data structures journey',
-  },
+  { id: 'dsa', label: 'DSA' },
   { id: 'contact', label: 'Contact' },
 ] as const
 

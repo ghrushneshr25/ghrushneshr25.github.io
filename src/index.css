@@ -1235,29 +1235,90 @@ p {
   text-transform: uppercase;
 }
 
+.terminal__title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.terminal__ok {
+  color: var(--text-dim);
+  letter-spacing: 0.14em;
+}
+
 .terminal__dots {
   display: flex;
   gap: 6px;
   margin-right: 8px;
 }
 
-.terminal__dots span {
-  width: 8px;
-  height: 8px;
+.terminal__dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 0;
   border-radius: 50%;
   background: var(--line-strong);
+  cursor: pointer;
 }
 
-.terminal__dots span:nth-child(1) {
+.terminal__dot--close {
   background: var(--text-mute);
 }
 
-.terminal__dots span:nth-child(2) {
+.terminal__dot--min {
   background: var(--text-dim);
 }
 
-.terminal__dots span:nth-child(3) {
+.terminal__dot--max {
   background: var(--text);
+}
+
+.terminal__dot:hover {
+  outline: 1px solid var(--line-strong);
+  outline-offset: 2px;
+}
+
+.terminal__hint {
+  margin: 8px 0 0;
+  color: var(--text-mute);
+  font-size: 12px;
+}
+
+.terminal-pop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.terminal-pop__backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: #00000073;
+  cursor: pointer;
+}
+
+.terminal-pop__card {
+  position: relative;
+  z-index: 1;
+  width: min(720px, 100%);
+  box-shadow: 0 28px 80px #00000059;
+}
+
+.terminal-pop__card .terminal {
+  border-color: var(--line-strong);
+}
+
+.terminal-pop__card .terminal__body {
+  height: min(520px, 70dvh);
 }
 
 .terminal__body {
@@ -1275,20 +1336,33 @@ p {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
   word-break: break-word;
+  color: var(--text-dim);
 }
 
 .terminal__line.is-cmd {
+  display: flex;
+  gap: 8px;
+  color: var(--text);
+}
+
+.terminal__line.is-sys {
+  color: var(--text-mute);
+}
+
+.terminal__line.is-err {
+  color: var(--text);
+}
+
+.terminal__prompt {
   color: var(--accent);
+  flex-shrink: 0;
 }
 
 .terminal__form {
   display: flex;
   gap: 8px;
   margin-top: 8px;
-}
-
-.terminal__form span {
-  color: var(--accent);
+  align-items: center;
 }
 
 .terminal__form input {
@@ -1298,6 +1372,8 @@ p {
   border: 0;
   outline: none;
   caret-color: var(--accent);
+  color: var(--text);
+  font-family: inherit;
   font-size: 16px;
 }
 

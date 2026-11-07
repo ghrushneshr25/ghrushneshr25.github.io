@@ -5,6 +5,7 @@ import { Experience } from './components/Experience'
 import { Footer } from './components/Footer'
 import { Hero } from './components/Hero'
 import { Navbar } from './components/Navbar'
+import { Dsa } from './components/Dsa'
 import { Projects } from './components/Projects'
 import { Spotlight } from './components/Spotlight'
 import { TechStack } from './components/TechStack'
@@ -28,6 +29,7 @@ export default function App() {
         <Experience />
         <Spotlight />
         <Projects />
+        <Dsa />
         <TechStack />
         <Currently />
         <Terminal />
